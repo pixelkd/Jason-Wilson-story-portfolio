@@ -1,0 +1,340 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+	overflow-x: hidden;
+}
+
+
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    height: 100vh; /* Ensures full viewport height */
+}
+
+/* Header bar items */
+.site-header {
+    border-bottom: 1px solid gray;
+    padding: 1rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.logo {}
+
+.emailInfo {
+	list-style: none;
+	display: flex;
+	gap: 1rem;
+}
+
+/* prepping mobile/vertical view */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-toggle .bar {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+
+
+/* the dropdown */
+.nav-links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #222;
+    width: 100%;
+    position: absolute;
+    top: 60px; 
+    left: 0;
+    padding: 1rem;
+	opacity: 0;
+	transform: translateY(-10px);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links-container.show {
+    display: flex;
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.internal-links{
+	display: flex;
+	gap: 1rem;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+
+
+/* Standard nav links */
+.internal-links li {
+	display: inline-block;
+}
+
+.internal-links a {
+	text-decoration: none;
+	color: white;
+	padding: 0.5rem 1rem;
+	transition: color 0.3s ease;
+}
+
+.internal-links a:hover {
+    color: lightgray; /* Changes color on hover */
+}
+
+
+
+
+.page-stage {
+    display: grid;
+	grid-template-columns: 215px 0.85fr;
+	gap: 1rem;
+}
+
+
+/* ---- Sidebar ---- */
+.sidebar {
+	border-right: 1px solid gray;
+	overflow-y: auto; 
+	overflow-x: hidden;
+	max-height: 100vh;
+	padding: 1rem;
+}
+
+.sidebar-content {
+	display: grid;
+	gap: 10px;
+}
+
+.sidebar-content img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+.project-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	padding: 10px;
+	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.project-item img {
+	width: 175px;
+	height: auto;
+	object-fit: contain;
+}
+
+.project-item:hover {
+	transform: scale(1.1);
+	opacity: 0.8;
+}
+
+.hero-section {
+    padding: 1rem;
+	margin-left: 15%;
+
+}
+
+
+
+
+/* Slideshow wrapper */
+#slideshow-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%
+	gap: 10px;
+
+}
+
+/* Instructions */
+#instructions{
+	text-align: center;
+	font-size: 18px;
+	color: white;
+	martin-bottom: 10px;
+}
+
+
+#slideshow-container {
+    width: 100%;
+    max-width: 1760px;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray; /* Keeps the space occupied */
+    border: 2px solid white;
+
+}
+
+/* Default Image Styling */
+#slideshow-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Fade-in effect */
+}
+
+/* Show the image once it loads */
+#slideshow-container img.loaded {
+    opacity: 1;
+}
+
+/* Controls container */
+/* Controls Container */
+#controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Button Styles */
+#controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #444;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+#controls button:hover {
+    background-color: #666;
+}
+
+/* Restart button initially hidden */
+#restart-btn {
+    visibility: hidden;
+    background-color: #ff5555;
+}
+
+/* Restart button when visible */
+#restart-btn.visible {
+    visibility: visible;
+}
+
+
+@media (max-aspect-ratio: 1/1)  {
+
+	.navbar {
+		display: none;
+	}
+	
+	.mobile-toggle {
+		display: flex;
+	}
+	
+	
+	.page-stage {
+		grid-template-columns: 1fr;
+		grid-template-rows: 175px 0.85fr;
+	}
+	
+	.sidebar {
+		border-bottom: none;
+		border-bottom: 1px solid gray;
+
+	}
+	
+	.sidebar-content {
+		display: flex;
+		justify-content: center;
+		
+	}
+	
+	.sidebar-content img {
+		width: auto;
+		max-height: 100px;
+	}
+	
+	.hero-section {
+    padding: 1rem;
+	margin-left: 0;
+
+}
+
+		@media (max-width: 800px) {
+				.page-stage {
+				grid-template-rows: 160px 0.85fr;
+			}
+			
+				.sidebar-content {
+				gap: 6px;
+				}
+
+				.sidebar-content img {
+				width: auto;
+				max-height: 85px;
+			}
+			
+			
+		}
+		
+		@media (max-width: 700px) {
+				.page-stage {
+				grid-template-rows: 140px 0.85fr;
+			}
+				.sidebar-content {
+				gap: 3px;
+				}
+				
+			
+				.sidebar-content img {
+				width: auto;
+				max-height: 65px;
+			}
+		}
+		
+		@media (max-width: 500px) {
+				.page-stage {
+				grid-template-rows: 125px 0.85fr;
+			}
+			
+				.sidebar-content img {
+				width: auto;
+				max-height: 50px;
+			}
+		}
+}
+
