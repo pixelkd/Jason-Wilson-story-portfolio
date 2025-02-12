@@ -145,3 +145,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // Adjust layout on window resize
     window.addEventListener("resize", updateSidebarLayout);
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileToggle = document.getElementById("mobileToggle");
+    const navLinksContainer = document.getElementById("navLinksContainer");
+
+    mobileToggle.addEventListener("click", function () {
+        navLinksContainer.classList.toggle("show"); // Use "show" instead of "active"
+
+        // Toggle display property for smoother transitions
+        if (navLinksContainer.classList.contains("show")) {
+            navLinksContainer.style.display = "flex";
+        } else {
+            navLinksContainer.style.display = "none";
+        }
+    });
+});
