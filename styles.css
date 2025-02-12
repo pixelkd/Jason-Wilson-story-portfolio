@@ -340,63 +340,74 @@ body {
 			
 		}
 		
-@media (max-width: 768px) {
-    .site-header {
-        padding: 2rem 1rem; /* Make header taller */
-    }
+		@media (max-width: 768px) {
+			.site-header {
 
-    .logo {
-        font-size: 1.6rem; /* Slightly smaller for mobile */
-    }
+				padding: 2rem 1rem; /* Make header taller */
+			}
 
-    /* Email & Menu in One Row */
-    .header-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
+			.logo {
+				padding-top: 4rem;
+				font-size: 1.6rem; /* Slightly smaller for mobile */
+			}
 
-    /* Show Mobile Menu Toggle */
-    .mobile-toggle {
-        display: flex;
-        justify-content: flex-end;
-    }
+			/* Email & Menu in One Row */
+			.header-info {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+			}
 
-    /* Adjust Email Positioning */
-    .emailInfo {
-        font-size: 1rem;
-        flex-grow: 1; /* Push menu to the right */
-        text-align: left;
-        padding-left: 10px;
-    }
+			/* Show Mobile Menu Toggle */
+			.mobile-toggle {
+				display: flex;
+				justify-content: flex-end;
+			}
 
-    /* Dropdown Menu Now Stacks Vertically */
-    .nav-links-container {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        position: absolute;
-        top: 100%; /* Below the header */
-        left: 0;
-        background-color: #222;
-        padding: 10px 0;
-    }
+			/* Adjust Email Positioning */
+			.emailInfo {
+				font-size: 1rem;
+				flex-grow: 1; /* Push menu to the right */
+				text-align: left;
+				padding-left: 10px;
+			}
 
-    /* When menu is active */
-    .nav-links-container.show {
-        display: flex;
-    }
+			/* Dropdown Menu Now Stacks Vertically */
+			.nav-links-container {
+				display: none;
+				flex-direction: column;
+				width: 100%;
+				text-align: center;
+				position: absolute;
+				top: 100%; /* Below the header */
+				left: 0;
+				background-color: #222;
+				padding: 10px 0;
+			}
 
-    /* Stack Links in Column */
-    .nav-links-container ul {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
-}
+			/* When menu is active */
+			.nav-links-container.show {
+				display: flex;
+			}
+
+			/* Stack Links in Column */
+			.nav-links-container ul {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				width: 100%;
+			}
+			
+			.sidebar-content {
+				gap: 0px;
+				}
+
+				.sidebar-content img {
+				width: auto;
+				max-height: 75px;
+			}
 		}
+	}
 }
 
