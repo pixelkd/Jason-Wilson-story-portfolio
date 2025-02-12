@@ -24,43 +24,39 @@ body {
     height: 100vh; /* Ensures full viewport height */
 }
 
-/* Header Bar Items */
+/* General Header Layout for All Views */
 .site-header {
-    border-bottom: 1px solid gray;
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column; /* Stack elements */
     align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem; /* Taller header */
+    border-bottom: 1px solid gray;
+    position: relative;
+}
+
+/* Logo at the Top with Headroom */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px; /* Create space below logo */
+}
+
+
+/* Email & Navigation in One Row */
+.header-info {
+    display: flex;
     justify-content: space-between;
-    text-align: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 1rem;
 }
 
-
-/* Responsive Fix for Mobile */
-@media (max-width: 768px) {
-    .site-header {
-        grid-template-columns: 1fr; /* Stack elements in a single column */
-        text-align: center;
-    }
-
-    .logo,
-    .emailInfo {
-        text-align: center; /* Center text */
-        margin-bottom: 5px;
-    }
-
-    .mobile-toggle {
-        display: flex; /* Ensure menu toggle is visible */
-        justify-content: center;
-    }
-}
-
-.logo {}
-
+/* Email Styling */
 .emailInfo {
-	list-style: none;
-	display: flex;
-	gap: 1rem;
+    font-size: 1rem;
+    white-space: nowrap;
 }
 
 /* prepping mobile/vertical view */
@@ -70,21 +66,30 @@ body {
     align-items: center;
 }
 
+/* Mobile Toggle Button */
 .mobile-toggle {
-    display: none;
+    display: none; /* Hidden by default on desktop */
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
+    padding: 10px;
 }
 
+/* Hamburger Menu Bars */
 .mobile-toggle .bar {
     display: block;
     width: 30px;
     height: 4px;
     background-color: white;
-    transition: 0.3s;
 }
 
+/* Navigation Links in One Line */
+.internal-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 10px;
+}
 
 
 /* Mobile Dropdown Menu */
@@ -335,31 +340,63 @@ body {
 			
 		}
 		
-		/* Mobile View Adjustments */
-		@media (max-width: 768px) {
-			.site-header {
-				grid-template-columns: 1fr; /* Stack header elements vertically */
-				text-align: center;
-				padding: 0.5rem; /* Reduce padding for smaller screens */
-			}
+@media (max-width: 768px) {
+    .site-header {
+        padding: 2rem 1rem; /* Make header taller */
+    }
 
-			.logo {
-				font-size: 1.2rem; /* Slightly reduce font size for mobile */
-			}
+    .logo {
+        font-size: 1.6rem; /* Slightly smaller for mobile */
+    }
 
-			.emailInfo {
-				font-size: 0.9rem;
-				word-wrap: break-word;
-				max-width: 90%;
-				margin: 0 auto;
-			}
+    /* Email & Menu in One Row */
+    .header-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
 
-			.mobile-toggle {
-				display: flex;
-				justify-content: center;
-				margin-top: 5px;
-			}
-		}
+    /* Show Mobile Menu Toggle */
+    .mobile-toggle {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    /* Adjust Email Positioning */
+    .emailInfo {
+        font-size: 1rem;
+        flex-grow: 1; /* Push menu to the right */
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    /* Dropdown Menu Now Stacks Vertically */
+    .nav-links-container {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 100%; /* Below the header */
+        left: 0;
+        background-color: #222;
+        padding: 10px 0;
+    }
+
+    /* When menu is active */
+    .nav-links-container.show {
+        display: flex;
+    }
+
+    /* Stack Links in Column */
+    .nav-links-container ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+}
 		}
 }
 
