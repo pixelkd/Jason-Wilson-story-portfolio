@@ -24,12 +24,35 @@ body {
     height: 100vh; /* Ensures full viewport height */
 }
 
-/* Header bar items */
+/* Header Bar Items */
 .site-header {
     border-bottom: 1px solid gray;
     padding: 1rem;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+
+/* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+    .site-header {
+        grid-template-columns: 1fr; /* Stack elements in a single column */
+        text-align: center;
+    }
+
+    .logo,
+    .emailInfo {
+        text-align: center; /* Center text */
+        margin-bottom: 5px;
+    }
+
+    .mobile-toggle {
+        display: flex; /* Ensure menu toggle is visible */
+        justify-content: center;
+    }
 }
 
 .logo {}
