@@ -335,30 +335,31 @@ body {
 			
 		}
 		
-		@media (max-width: 700px) {
-				.page-stage {
-				grid-template-rows: 140px 0.85fr;
+		/* Mobile View Adjustments */
+		@media (max-width: 768px) {
+			.site-header {
+				grid-template-columns: 1fr; /* Stack header elements vertically */
+				text-align: center;
+				padding: 0.5rem; /* Reduce padding for smaller screens */
 			}
-				.sidebar-content {
-				gap: 3px;
-				}
-				
-			
-				.sidebar-content img {
-				width: auto;
-				max-height: 65px;
+
+			.logo {
+				font-size: 1.2rem; /* Slightly reduce font size for mobile */
+			}
+
+			.emailInfo {
+				font-size: 0.9rem;
+				word-wrap: break-word;
+				max-width: 90%;
+				margin: 0 auto;
+			}
+
+			.mobile-toggle {
+				display: flex;
+				justify-content: center;
+				margin-top: 5px;
 			}
 		}
-		
-		@media (max-width: 500px) {
-				.page-stage {
-				grid-template-rows: 125px 0.85fr;
-			}
-			
-				.sidebar-content img {
-				width: auto;
-				max-height: 50px;
-			}
 		}
 }
 
