@@ -401,12 +401,12 @@ body {
 			}
 			
 			.sidebar-content {
-				gap: 0px;
+				gap: 1px;
 				}
 
 				.sidebar-content img {
 				width: auto;
-				max-height: 75px;
+				max-height: 65px;
 			}
 		}
 	}
