@@ -68,7 +68,7 @@ function loadSlideshow(project) {
 	restartBtn.id = "restart-btn";
 	restartBtn.textContent = "Restart";
 	restartBtn.addEventListener("click", restartSlideshow);
-	restartBtn.style.visibility = "hidden"; // Initially hidden
+	restartBtn.style.visibility = ""; // Initially hidden
 	controls.appendChild(restartBtn);
 
 	// Append the controls container to the slideshow
@@ -85,7 +85,6 @@ function loadSlideshow(project) {
     // Load the first image
     updateSlideshowImage();
 	
-	document.getElementById("restart-btn").style.visibility = "hidden";// Reset Restart button visibility
 
 	// Disable navigation if there is only one image
 	if (imageSequence.length === 1) {
@@ -107,12 +106,11 @@ function loadSlideshow(project) {
 function restartSlideshow() {
     currentImageIndex = 0;
     updateSlideshowImage();
-    
-    // Hide the Restart button after restarting
+
+    // ✅ Fix: Hide the Restart button after restarting
     document.getElementById("restart-btn").style.visibility = "hidden";
 }
 
-// Function to update the slideshow image
 function updateSlideshowImage() {
     const slideshowImage = document.getElementById("slideshow-image");
     const prevBtn = document.getElementById("prev-btn");
@@ -123,37 +121,18 @@ function updateSlideshowImage() {
 
     let imgSrc = imageSequence[currentImageIndex];
 
-    // Ensure the first image loads before checking others
     if (!preloadedImages[imgSrc]) {
-        slideshowImage.src = imgSrc; // Load the first image immediately
+        slideshowImage.src = imgSrc; // Load first image immediately
     } else {
         slideshowImage.src = preloadedImages[imgSrc].src;
     }
 
-    // If only one image, hide all navigation buttons
-	if (imageSequence.length === 1) {
-		prevBtn.style.display = "none";
-		nextBtn.style.display = "none";
-		restartBtn.style.display = "none"; // Ensure restart button is hidden for single image
-	} else {
-		prevBtn.style.display = currentImageIndex === 0 ? "none" : "inline-block";
-		nextBtn.style.display = currentImageIndex === imageSequence.length - 1 ? "none" : "inline-block";
-		
-		// Restart button should only appear after leaving the first image
-		restartBtn.style.visibility = currentImageIndex > 0 ? "visible" : "hidden";
-	}
+    // Keep Prev and Next buttons in place but hide when needed
+    prevBtn.classList.toggle("hidden", currentImageIndex === 0);
+    nextBtn.classList.toggle("hidden", currentImageIndex === imageSequence.length - 1);
 
-    // Remove click-to-advance if there's only one image
-    if (imageSequence.length === 1) {
-        slideshowImage.removeEventListener("click", moveToNextImage);
-    } else {
-        slideshowImage.addEventListener("click", moveToNextImage);
-    }
-
-    // Preload adjacent images
-    setTimeout(() => {
-        preloadAdjacentImages();
-    }, 50); // Delay slightly to ensure preloading does not interfere
+    // ✅ Fix: Show Restart button when user advances past the first image
+    restartBtn.style.visibility = (currentImageIndex > 0) ? "visible" : "hidden";
 }
 
 
