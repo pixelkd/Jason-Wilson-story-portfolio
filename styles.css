@@ -43,7 +43,7 @@ body {
 }
 
 
-/* Email & Navigation in One Row */
+/* Email, Navigation Links, and Mobile Toggle in One Row */
 .header-info {
     display: flex;
     justify-content: space-between;
@@ -53,20 +53,21 @@ body {
     padding: 0 1rem;
 }
 
-/* Email Styling */
+/* Email on the Left */
 .emailInfo {
     font-size: 1rem;
     white-space: nowrap;
+    flex-grow: 1; /* Allows it to take up available space */
 }
 
-/* prepping mobile/vertical view */
+/* Navigation and Mobile Toggle to the Right */
 .navbar {
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 1rem;
 }
 
-/* Mobile Toggle Button */
+/* Ensure Mobile Toggle is Visible and Aligns */
 .mobile-toggle {
     display: none; /* Hidden by default on desktop */
     cursor: pointer;
@@ -356,7 +357,7 @@ body {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				width: 100%;
+
 			}
 
 			/* Show Mobile Menu Toggle */
@@ -367,11 +368,11 @@ body {
 
 			/* Adjust Email Positioning */
 			.emailInfo {
-				font-size: 1rem;
-				flex-grow: 1; /* Push menu to the right */
 				text-align: left;
-				padding-left: 10px;
+				flex-grow: 1;
 			}
+
+
 
 			/* Dropdown Menu Now Stacks Vertically */
 			.nav-links-container {
