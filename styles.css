@@ -1,3 +1,4 @@
+/* ========== GLOBAL STYLES ========== */
 html, body {
     height: 100%;
     margin: 0;
@@ -13,9 +14,8 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-	overflow-x: hidden;
+    overflow-x: hidden;
 }
-
 
 .container {
     display: grid;
@@ -24,26 +24,25 @@ body {
     height: 100vh; /* Ensures full viewport height */
 }
 
-/* General Header Layout for All Views */
+/* ========== HEADER STYLES ========== */
 .site-header {
     display: flex;
-    flex-direction: column; /* Stack elements */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem 1rem; /* Taller header */
+    padding: 1.5rem 1rem;
     border-bottom: 1px solid gray;
     position: relative;
 }
 
-/* Logo at the Top with Headroom */
+/* Logo with Headroom */
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 15px; /* Create space below logo */
+    margin-bottom: 15px;
 }
 
-
-/* Email, Navigation Links, and Mobile Toggle in One Row */
+/* Header Info: Email, Navigation, and Mobile Toggle */
 .header-info {
     display: flex;
     justify-content: space-between;
@@ -53,21 +52,43 @@ body {
     padding: 0 1rem;
 }
 
-/* Email on the Left */
 .emailInfo {
     font-size: 1rem;
     white-space: nowrap;
     flex-grow: 1; /* Allows it to take up available space */
 }
 
-/* Navigation and Mobile Toggle to the Right */
+/* Navigation Bar */
 .navbar {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-/* Ensure Mobile Toggle is Visible and Aligns */
+/* Internal Links */
+.internal-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 10px;
+}
+
+.internal-links li {
+    display: inline-block;
+}
+
+.internal-links a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.internal-links a:hover {
+    color: lightgray;
+}
+
+/* Mobile Toggle Button */
 .mobile-toggle {
     display: none; /* Hidden by default on desktop */
     cursor: pointer;
@@ -76,22 +97,12 @@ body {
     padding: 10px;
 }
 
-/* Hamburger Menu Bars */
 .mobile-toggle .bar {
     display: block;
     width: 30px;
     height: 4px;
     background-color: white;
 }
-
-/* Navigation Links in One Line */
-.internal-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 10px;
-}
-
 
 /* Mobile Dropdown Menu */
 .nav-links-container {
@@ -101,7 +112,7 @@ body {
     background-color: #222;
     width: 100%;
     position: absolute;
-    top: 60px; 
+    top: 60px;
     left: 0;
     padding: 1rem;
     opacity: 0;
@@ -111,114 +122,80 @@ body {
 
 /* Show Menu when "show" class is added */
 .nav-links-container.show {
-    display: flex; /* Ensure it becomes visible */
+    display: flex;
     opacity: 1;
     transform: translateY(0);
 }
 
-.internal-links{
-	display: flex;
-	gap: 1rem;
-	grid-template-columns: 1fr 1fr 1fr;
-}
-
-
-
-
-/* Standard nav links */
-.internal-links li {
-	display: inline-block;
-}
-
-.internal-links a {
-	text-decoration: none;
-	color: white;
-	padding: 0.5rem 1rem;
-	transition: color 0.3s ease;
-}
-
-.internal-links a:hover {
-    color: lightgray; /* Changes color on hover */
-}
-
-
-
-
+/* ========== PAGE LAYOUT STYLES ========== */
 .page-stage {
     display: grid;
-	grid-template-columns: 215px 0.85fr;
-	gap: 1rem;
+    grid-template-columns: 215px 0.85fr;
+    gap: 1rem;
 }
 
-
-/* ---- Sidebar ---- */
+/* Sidebar */
 .sidebar {
-	border-right: 1px solid gray;
-	overflow-y: auto; 
-	overflow-x: hidden;
-	max-height: 100vh;
-	padding: 1rem;
+    border-right: 1px solid gray;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100vh;
+    padding: 1rem;
 }
 
 .sidebar-content {
-	display: grid;
-	gap: 10px;
+    display: grid;
+    gap: 10px;
 }
 
 .sidebar-content img {
-	width: 100%;
-	height: auto;
-	object-fit: contain;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .project-item {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	padding: 10px;
-	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .project-item img {
-	width: 175px;
-	height: auto;
-	object-fit: contain;
+    width: 175px;
+    height: auto;
+    object-fit: contain;
 }
 
 .project-item:hover {
-	transform: scale(1.1);
-	opacity: 0.8;
+    transform: scale(1.1);
+    opacity: 0.8;
 }
 
+/* Hero Section */
 .hero-section {
     padding: 1rem;
-	margin-left: 15%;
-
+    margin-left: 15%;
 }
 
-
-
-
-/* Slideshow wrapper */
+/* ========== SLIDESHOW STYLES ========== */
 #slideshow-wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%
-	gap: 10px;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
 }
 
-/* Instructions */
-#instructions{
-	text-align: center;
-	font-size: 18px;
-	color: white;
-	martin-bottom: 10px;
+#instructions {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 10px;
 }
-
 
 #slideshow-container {
     width: 100%;
@@ -227,19 +204,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: gray; /* Keeps the space occupied */
+    background-color: gray;
     border: 2px solid white;
-
 }
 
-/* Default Image Styling */
+/* Slideshow Images */
 #slideshow-container img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     cursor: pointer;
     opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out; /* Fade-in effect */
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* Show the image once it loads */
@@ -247,8 +223,7 @@ body {
     opacity: 1;
 }
 
-/* Controls container */
-/* Controls Container */
+/* Slideshow Controls */
 #controls {
     display: flex;
     justify-content: center;
@@ -256,7 +231,7 @@ body {
     margin-top: 10px;
 }
 
-/* Button Styles */
+/* Button Styling */
 #controls button {
     padding: 10px 20px;
     font-size: 16px;
@@ -266,149 +241,111 @@ body {
     color: white;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
+    min-width: 100px; /* Ensures all buttons stay aligned */
+    text-align: center;
 }
 
-/* Hover Effect */
+/* Button Hover Effect */
 #controls button:hover {
     background-color: #666;
 }
 
-/* Restart button initially hidden */
+/* Hide buttons while maintaining space */
+.hidden {
+    visibility: hidden; /* Keeps space occupied */
+    pointer-events: none; /* Prevents accidental clicks */
+}
+
+/* Restart Button */
 #restart-btn {
     visibility: hidden;
     background-color: #ff5555;
 }
 
-/* Restart button when visible */
 #restart-btn.visible {
     visibility: visible;
 }
 
+/* ========== RESPONSIVE DESIGN (VERTICAL ORIENTATION) ========== */
+@media (max-aspect-ratio: 1/1) {
+    /* Stack Sidebar on Top */
+    .page-stage {
+        grid-template-columns: 1fr;
+        grid-template-rows: 175px 1fr;
+    }
 
-@media (max-aspect-ratio: 1/1)  {
+    /* Remove Left Margin in Hero Section */
+    .hero-section {
+        margin-left: 0;
+        padding: 1rem;
+    }
 
-	.navbar {
-		display: none;
-	}
-	
-	.mobile-toggle {
-		display: flex;
-	}
-	
-	
-	.page-stage {
-		grid-template-columns: 1fr;
-		grid-template-rows: 175px 0.85fr;
-	}
-	
-	.sidebar {
-		border-bottom: none;
-		border-bottom: 1px solid gray;
+    /* Sidebar Behaves as a Top Bar */
+    .sidebar {
+        border-bottom: 1px solid gray;
+        border-right: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
 
-	}
-	
-	.sidebar-content {
-		display: flex;
-		justify-content: center;
-		
-	}
-	
-	.sidebar-content img {
-		width: auto;
-		max-height: 100px;
-	}
-	
-	.hero-section {
-    padding: 1rem;
-	margin-left: 0;
+    /* Sidebar Content is Horizontal */
+    .sidebar-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        overflow-x: auto;
+        max-width: 100%;
+    }
 
+    .sidebar-content img {
+        width: auto;
+        max-height: 100px;
+    }
 }
 
-		@media (max-width: 800px) {
-				.page-stage {
-				grid-template-rows: 160px 0.85fr;
-			}
-			
-				.sidebar-content {
-				gap: 6px;
-				}
+/* Adjust for Smaller Screens */
+@media (max-width: 800px) {
+    .page-stage {
+        grid-template-rows: 160px 1fr;
+    }
 
-				.sidebar-content img {
-				width: auto;
-				max-height: 85px;
-			}
-			
-			
-		}
-		
-		@media (max-width: 768px) {
-			.site-header {
+    .hero-section {
+        margin-left: 0;
+    }
 
-				padding: 2rem 1rem; /* Make header taller */
-			}
-
-			.logo {
-				padding-top: 4rem;
-				font-size: 1.6rem; /* Slightly smaller for mobile */
-			}
-
-			/* Email & Menu in One Row */
-			.header-info {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-
-			}
-
-			/* Show Mobile Menu Toggle */
-			.mobile-toggle {
-				display: flex;
-				justify-content: flex-end;
-			}
-
-			/* Adjust Email Positioning */
-			.emailInfo {
-				text-align: left;
-				flex-grow: 1;
-			}
-
-
-
-			/* Dropdown Menu Now Stacks Vertically */
-			.nav-links-container {
-				display: none;
-				flex-direction: column;
-				width: 100%;
-				text-align: center;
-				position: absolute;
-				top: 100%; /* Below the header */
-				left: 0;
-				background-color: #222;
-				padding: 10px 0;
-			}
-
-			/* When menu is active */
-			.nav-links-container.show {
-				display: flex;
-			}
-
-			/* Stack Links in Column */
-			.nav-links-container ul {
-				display: flex;
-				flex-direction: column;
-				gap: 10px;
-				width: 100%;
-			}
-			
-			.sidebar-content {
-				gap: 1px;
-				}
-
-				.sidebar-content img {
-				width: auto;
-				max-height: 65px;
-			}
-		}
-	}
+    .sidebar-content img {
+        max-height: 85px;
+    }
 }
 
+@media (max-width: 700px) {
+    .page-stage {
+        grid-template-rows: 140px 1fr;
+    }
+
+    .hero-section {
+        margin-left: 0;
+    }
+
+    .sidebar-content img {
+        max-height: 65px;
+    }
+}
+
+@media (max-width: 500px) {
+    .page-stage {
+        grid-template-rows: 125px 1fr;
+    }
+
+    .hero-section {
+        margin-left: 0;
+    }
+
+    .sidebar-content img {
+        max-height: 50px;
+    }
+}
